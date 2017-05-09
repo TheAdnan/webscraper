@@ -67,5 +67,105 @@ Sample definition extractor for landing page Wikipedia https://www.wikipedia.org
 }
 
 ````
+Sample output (JSON):
+
+````
+{
+  "langs": [
+    {
+      "title": "English",
+      "url": "//en.wikipedia.org/"
+    },
+    {
+      "title": "Español",
+      "url": "//es.wikipedia.org/"
+    },
+    {
+      "title": "日本語",
+      "url": "//ja.wikipedia.org/"
+    },
+    {
+      "title": "Deutsch",
+      "url": "//de.wikipedia.org/"
+    },
+    {
+      "title": "Русский",
+      "url": "//ru.wikipedia.org/"
+    },
+    {
+      "title": "Français",
+      "url": "//fr.wikipedia.org/"
+    },
+    {
+      "title": "Italiano",
+      "url": "//it.wikipedia.org/"
+    },
+    {
+      "title": "中文",
+      "url": "//zh.wikipedia.org/"
+    },
+    {
+      "title": "Português",
+      "url": "//pt.wikipedia.org/"
+    },
+    {
+      "title": "Polski",
+      "url": "//pl.wikipedia.org/"
+    }
+  ],
+  "otherProjects": [
+    {
+      "title": "Commons",
+      "url": "//commons.wikimedia.org/"
+    },
+    {
+      "title": "Wikivoyage",
+      "url": "//www.wikivoyage.org/"
+    },
+    {
+      "title": "Wiktionary",
+      "url": "//www.wiktionary.org/"
+    },
+    {
+      "title": "Wikibooks",
+      "url": "//www.wikibooks.org/"
+    },
+    {
+      "title": "Wikinews",
+      "url": "//www.wikinews.org/"
+    },
+    {
+      "title": "Wikidata",
+      "url": "//www.wikidata.org/"
+    },
+    {
+      "title": "Wikiversity",
+      "url": "//www.wikiversity.org/"
+    },
+    {
+      "title": "Wikiquote",
+      "url": "//www.wikiquote.org/"
+    },
+    {
+      "title": "MediaWiki",
+      "url": "//www.mediawiki.org/"
+    },
+    {
+      "title": "Wikisource",
+      "url": "//www.wikisource.org/"
+    },
+    {
+      "title": "Wikispecies",
+      "url": "//species.wikimedia.org/"
+    },
+    {
+      "title": "Meta-Wiki",
+      "url": "//meta.wikimedia.org/"
+    }
+  ]
+}
+
+````
+
 
 Please check Tests for other samples...
