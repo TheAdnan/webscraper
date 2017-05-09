@@ -18,9 +18,7 @@ import java.io.InputStreamReader;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-/**
- * Created by ninel on 5/7/17.
- */
+
 public class WebScrapperJsoupExtractorTest {
 
     public static String getJsonFromObject(Object object) {

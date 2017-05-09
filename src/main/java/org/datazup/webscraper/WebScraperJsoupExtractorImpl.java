@@ -11,9 +11,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Created by ninel on 5/7/17.
- */
+
 public class WebScraperJsoupExtractorImpl implements IWebScraperExtractor {
 
     private Map<String, Object> definition;
