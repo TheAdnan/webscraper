@@ -1,0 +1,23 @@
+{
+  "selectors":[
+    {
+      "key":"WikiPage",
+      "type":"object",
+      "css":".infobox",
+      "properties":[
+        {
+          "key":"title",
+          "type": "item",
+          "css": "tbody tr:eq(0)",
+          "attr": "text"
+        },
+        {
+          "key":"imageUrl",
+          "type": "item",
+          "css": "tbody tr:eq(1) a img",
+          "attr": "src"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "selectors": [
+    {
+      "key": "title",
+      "type": "object",
+      "css": ".storesrepo_title a",
+      "attr": "text",
+      "properties": [
+        {
+          "key": "details",
+          "type": "object",
+          "css":"#tabs1",
+          "properties": [
+            {
+              "key": "title",
+              "type": "item",
+              "css": ".storesrepo_title a",
+              "attr": "text"
+            },
+            {
+              "key": "price",
+              "type": "item",
+              "css": ".product_odd:contains(Cijena) + .field_results",
+              "attr": "text"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

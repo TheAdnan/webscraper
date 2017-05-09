@@ -1,0 +1,60 @@
+{
+  "selectors": [
+    {
+      "key": "cars",
+      "type": "container",
+      "css": ".stores .search_listing",
+      "items": [
+        {
+          "key": "info",
+          "css": ".search_listing_info",
+          "type": "object",
+          "properties": [
+            {
+              "key": "title",
+              "type": "item",
+              "css": "a b",
+              "attr": "text"
+            },
+            {
+              "key": "description",
+              "type": "item",
+              "css": "div:eq(3) p:eq(0)",
+              "attr": "text"
+            },
+            {
+              "key": "url",
+              "type": "item",
+              "css": "a",
+              "attr": "href"
+            },
+            {
+              "key": "price",
+              "type": "item",
+              "css": "div[style^=float:left; font-size:16px;]",
+              "attr": "text"
+            },
+            {
+              "key": "gasType",
+              "type": "item",
+              "css": "div:eq(2) p:has(b)",
+              "attr": "text"
+            }
+          ]
+        },
+        {
+          "key": "smallImage",
+          "type": "item",
+          "css": ".product_image a img",
+          "attr": "src"
+        },
+        {
+          "key": "bigImage",
+          "type": "item",
+          "css": ".zome_product_image img",
+          "attr": "src"
+        }
+      ]
+    }
+  ]
+}

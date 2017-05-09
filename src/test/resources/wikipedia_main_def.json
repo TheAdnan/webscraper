@@ -1,0 +1,42 @@
+{
+  "selectors": [
+    {
+      "key":"langs",
+      "type":"container",
+      "css":".central-featured .central-featured-lang",
+      "items":[
+        {
+          "key":"title",
+          "type":"item",
+          "css":".link-box strong",
+          "attr":"text"
+        },
+        {
+          "key":"url",
+          "type":"item",
+          "css":"a",
+          "attr":"href"
+        }
+      ]
+    },
+    {
+      "key":"otherProjects",
+      "type":"container",
+      "css":".other-projects .other-project",
+      "items":[
+        {
+          "key":"title",
+          "type":"item",
+          "css":".other-project-title",
+          "attr":"text"
+        },
+        {
+          "key":"url",
+          "type":"item",
+          "css":"a",
+          "attr":"href"
+        }
+      ]
+    }
+  ]
+}
