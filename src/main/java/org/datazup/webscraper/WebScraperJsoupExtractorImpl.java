@@ -49,6 +49,12 @@ public class WebScraperJsoupExtractorImpl implements IWebScraperExtractor {
 
                 result.put(key, resList);
                 break;
+            case "map":
+                key = (String) selector.get("key");
+                Map<String, Object> resultMap = handleMap(selector, elements);
+                result.put(key, resultMap);
+
+                break;
             case "item":
                 key = (String) selector.get("key");
 
@@ -68,7 +74,7 @@ public class WebScraperJsoupExtractorImpl implements IWebScraperExtractor {
                         o = l;
                         result.put(key, o);
                     }
-                }else{
+                } else {
                     result.put(key, null);
                 }
 
@@ -84,6 +90,7 @@ public class WebScraperJsoupExtractorImpl implements IWebScraperExtractor {
 
         return result;
     }
+
 
     /**
      * object can have CSS and Attr but it is not required
@@ -124,9 +131,9 @@ public class WebScraperJsoupExtractorImpl implements IWebScraperExtractor {
             }
             Map<String, Object> props = handleObjectProperties(properties, elems);
             if (null != css) {
-                if (null==attribute){
+                if (null == attribute) {
                     map.put(key, props);
-                }else {
+                } else {
                     map.put("properties", props);
                 }
             } else {
@@ -140,6 +147,7 @@ public class WebScraperJsoupExtractorImpl implements IWebScraperExtractor {
 
     private String resolveAttribute(String attribute, Elements elements) {
         String value = null;
+
         switch (attribute) {
             case "text":
                 value = elements.text();
@@ -159,13 +167,20 @@ public class WebScraperJsoupExtractorImpl implements IWebScraperExtractor {
             default:
                 // get by named attribute
                 //if (elements.hasAttr(attribute)) {
-                if (elements.size()==1){
+                if (elements.size() == 1) {
                     value = elements.get(0).attr(attribute);
-                }else {
+                } else {
                     value = elements.attr(attribute);
                 }
                 //}
                 break;
+        }
+
+        if(null==value || value.isEmpty()){
+            if (attribute.contains("||")){
+                String[] splitted = attribute.split("\\Q||\\E");
+                value = splitted[1].trim();
+            }
         }
 
         return value;
@@ -200,6 +215,55 @@ public class WebScraperJsoupExtractorImpl implements IWebScraperExtractor {
         return res;
     }
 
+    private Map<String, Object> handleMap(Map<String, Object> selector, Elements inputData) {
+
+        Map<String, Object> map = new HashMap<>();
+        String css = (String) selector.get("css");
+        Elements elements = inputData.select(css);
+
+        if (selector.containsKey("map")) {
+            Map<String, Object> mapDef = (Map) selector.get("map");
+            if (null != mapDef && mapDef.containsKey("key") && mapDef.containsKey("value")) {
+                Map<String, Object> keyMap = (Map<String, Object>) mapDef.get("key");
+                Map<String, Object> valueMap = (Map<String, Object>) mapDef.get("value");
+
+                for (Element element : elements) {
+                    Elements els = new Elements(element);
+
+                    Map<String, Object> keyValueMap = processMapItem(keyMap, els);
+                    String keyValue = (String) keyValueMap.get("value");
+                    Map<String, Object> valueValueMap = processMapItem(valueMap, els);
+                    Object resValue = valueValueMap.get("value");
+                    map.put(keyValue, resValue);
+                }
+            }
+        }
+
+        if (map.size() > 0) {
+            // TODO: should we response with html???
+        }
+
+
+        return map;
+    }
+
+    private Map<String, Object> processMapItem(Map<String, Object> keyMap, Elements els) {
+        Map<String, Object> map = new HashMap<>();
+        String css = (String) keyMap.get("css");
+        String itemType = (String) keyMap.get("type");
+        Elements keyElems = els.select(css);
+        String attribute = (String)keyMap.get("attr");
+        switch (itemType) {
+            case "item":
+                String value = resolveAttribute(attribute, keyElems);
+                map.put("value", value);
+                break;
+            default:
+                throw new UnsupportedOperationException("We don't support complex object in Map - only Item type");
+        }
+
+        return map;
+    }
 
     private List<Map<String, Object>> handleContainer(Map<String, Object> selector, Elements inputData) {
         List<Map<String, Object>> res = new ArrayList<>();
