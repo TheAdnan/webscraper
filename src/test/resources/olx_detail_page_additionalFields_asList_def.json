@@ -1,0 +1,117 @@
+{
+  "selectors": [
+    {
+      "key": "productItem",
+      "css": "body",
+      "type": "object",
+      "properties": [
+        {
+          "key": "title",
+          "css": "#naslovartikla",
+          "type": "item",
+          "attr": "text"
+        },
+        {
+          "key": "description",
+          "css": "#detaljni-opis",
+          "type": "item",
+          "attr": "html"
+        },
+        {
+          "key":"shortDescription",
+          "css": ".artikal_detaljniopis_tekst",
+          "type":"item",
+          "attr":"text"
+        },
+        {
+          "key":"imageUrl",
+          "css": "#artikal_glavni_div .artikal_desno img",
+          "type":"item",
+          "attr":"src"
+        },
+        {
+          "key": "priperties",
+          "css": "#artikal_glavni_div .artikal_lijevo",
+          "type": "object",
+          "properties": [
+            {
+              "key": "categories",
+              "css": ".artikal_kat span[typeof=v:Breadcrumb]",
+              "type": "container",
+              "items": [
+                {
+                  "key": "name",
+                  "css": "a span",
+                  "type": "item",
+                  "attr": "text"
+                },
+                {
+                  "key": "link",
+                  "css": "a",
+                  "type": "item",
+                  "attr": "href"
+                }
+              ]
+            },
+            {
+              "key": "price",
+              "css": ".mobile-cijena p:eq(1)",
+              "type": "item",
+              "attr": "text"
+            },
+            {
+              "key": "itemUsageStatus",
+              "css": ".mobile-stanje p:eq(1)",
+              "type": "item",
+              "attr": "text"
+            },
+            {
+              "key": "location",
+              "css": ".mobile-lokacija",
+              "type": "object",
+              "properties": [
+                {
+                  "key": "title",
+                  "css": "a p:eq(1)",
+                  "type": "item",
+                  "attr": "text"
+                },
+                {
+                  "key": "link",
+                  "css": "a",
+                  "type": "item",
+                  "attr": "href"
+                }
+              ]
+            },
+            {
+              "key": "date",
+              "css": ".op.ob.pop",
+              "type": "item",
+              "attr": "data-content"
+            },
+            {
+              "key": "additionalFields",
+              "css": ".df",
+              "type": "container",
+              "items":[
+                {
+                  "key":"key",
+                  "css":".df1",
+                  "type":"item",
+                  "attr":"text"
+                },
+                {
+                  "key":"value",
+                  "css":".df2",
+                  "type":"item",
+                  "attr":"text || true"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

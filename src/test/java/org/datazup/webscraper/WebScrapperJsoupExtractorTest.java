@@ -168,4 +168,17 @@ public class WebScrapperJsoupExtractorTest {
 
     }
 
+    @Test
+    public void singleDetailPageAdditionalFieldsAsListOlx() throws IOException {
+        String url = "https://www.olx.ba/artikal/26060484/stan-cengic-vila-115-5m2-zgrada-mrvica/";
+        String path = "olx_detail_page_additionalFields_asList_def.json";
+
+        Map m = runTest(path, url);
+
+        String jsonM = getJsonFromObject(m);
+
+        System.out.println(jsonM);
+
+    }
+
 }

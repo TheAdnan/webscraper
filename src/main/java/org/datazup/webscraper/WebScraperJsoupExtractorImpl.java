@@ -148,7 +148,15 @@ public class WebScraperJsoupExtractorImpl implements IWebScraperExtractor {
     private String resolveAttribute(String attribute, Elements elements) {
         String value = null;
 
-        switch (attribute) {
+        String attributeDefaultValue = null;
+        if (attribute.contains("||")) {
+            String[] splitted = attribute.split("\\Q||\\E");
+            attributeDefaultValue = splitted[1].trim();
+            attribute = splitted[0].trim();
+        }
+
+
+            switch (attribute) {
             case "text":
                 value = elements.text();
                 break;
@@ -176,11 +184,8 @@ public class WebScraperJsoupExtractorImpl implements IWebScraperExtractor {
                 break;
         }
 
-        if(null==value || value.isEmpty()){
-            if (attribute.contains("||")){
-                String[] splitted = attribute.split("\\Q||\\E");
-                value = splitted[1].trim();
-            }
+        if((null==value || value.isEmpty()) && (null!=attributeDefaultValue || !attributeDefaultValue.isEmpty())){
+            value =attributeDefaultValue;
         }
 
         return value;
