@@ -184,7 +184,7 @@ public class WebScraperJsoupExtractorImpl implements IWebScraperExtractor {
                 break;
         }
 
-        if((null==value || value.isEmpty()) && (null!=attributeDefaultValue || !attributeDefaultValue.isEmpty())){
+        if((null==value || value.isEmpty()) && (null!=attributeDefaultValue && !attributeDefaultValue.isEmpty())){
             value =attributeDefaultValue;
         }
 
