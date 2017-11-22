@@ -8,14 +8,10 @@
     "48": " "
   },
 
-  "devtools_page": "devtools/webscraper.html",
+  "devtools_page": "devtools/devtools-page.html",
 
   "permissions": [
-    "activeTab",
-    "tabs",
-    "clipboardRead",
-    "clipboardWrite",
-    "unlimitedStorage"
-      ],
-
+	"<all_urls>",
+	"activeTab",
+    ],
 }
