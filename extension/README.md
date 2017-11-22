@@ -1,9 +1,9 @@
 # webscraper WebExtension
 
-_Simple CSS selector JSON definition to extract data from HTML sites using (Jsoup)[https://jsoup.org/]._
+_Simple CSS selector JSON definition to extract data from HTML sites using [Jsoup](https://jsoup.org/)._
 
 
-### Sample definition extractor for landing page Wikipedia https://www.wikipedia.org/
+### Sample definition extractor for landing page of [Wikipedia](https://www.wikipedia.org/):
 
 ````
 {
