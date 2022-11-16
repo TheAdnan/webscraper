@@ -9,7 +9,7 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <jsoup.version>1.10.2</jsoup.version>
+        <jsoup.version>1.15.3</jsoup.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <jackson.version>2.8.4</jackson.version>
     </properties>
